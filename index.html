@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aishwarya Sharma - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="slide-in">Aishwarya Sharma</h1>
+      <p class="fade-in">BCA Student | Developer | Creative Head</p>
+      <button id="toggle-dark-mode">🌙 Dark Mode</button>
+    </header>
+
+    <section id="about" class="fade-in">
+      <h2>About Me</h2>
+      <p>Hi! I'm Aishwarya Sharma, a third-year BCA student at Shoolini University with a GPA of 8.0. I’m passionate about solving problems with code and expressing creativity through tech. I’ve taken roles like Creative Head, College Ambassador, and Social Media Manager, and organized college events like Moksha 2025 and Formula Bharat 2025. I'm seeking an internship where I can contribute and grow in tech.</p>
+      <div class="resume-download">
+        <a href="AISHWARYA (2).pdf" download>
+          <button class="download-btn">📄 Download Resume</button>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+      <h2>Skills</h2>
+      <div class="tags" id="skill-buttons">
+        <button onclick="showProjects('C')">C</button>
+        <button onclick="showProjects('C++')">C++</button>
+        <button onclick="showProjects('C#')">C#</button>
+        <button onclick="showProjects('Java')">Java</button>
+        <button onclick="showProjects('SQL')">SQL</button>
+        <button onclick="showProjects('HTML')">HTML</button>
+        <button onclick="showProjects('CSS')">CSS</button>
+      </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+      <h2>Projects</h2>
+      <div id="project-list">
+        <p>Click on a skill to view related projects.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Aishwarya Sharma | Built with 💻 and ☕</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-dark-mode');
+    const body = document.body;
+    body.classList.add('light-mode');
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      toggleBtn.textContent = body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+
+    const projects = {
+      "C": ["Basic programs like calculator and file operations in C."],
+      "C++": ["Student Management System – CRUD with file handling."],
+      "C#": ["To-Do List App – GUI with Windows Forms."],
+      "Java": ["Library Database Interface – Java + SQL (JDBC)."],
+      "SQL": ["Event Registration Backend – MySQL queries and database design."],
+      "HTML": [
+        "Personal Portfolio Website – HTML structure & layout.",
+        "Event Registration Webpage – Front-end form and layout."
+      ],
+      "CSS": [
+        "Responsive Styling for Portfolio Website.",
+        "Custom styling for registration forms and themes."
+      ]
+    };
+
+    function showProjects(skill) {
+      const container = document.getElementById('project-list');
+      const list = projects[skill] || [];
+      container.innerHTML = `<h3>${skill} Projects:</h3><ul>` +
+        list.map(p => `<li>${p}</li>`).join("") + "</ul>";
+    }
+  </script>
+</body>
+</html>
+
